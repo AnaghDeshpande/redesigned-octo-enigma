@@ -1,11 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Html</title>
-</head>
-<body>
-    <h1>This is a new test Html file.</h1>
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block title %}
+    All_chai
+{% endblock %}
+
+{% block content %}
+    <h1>All chai for you</h1>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1rem;">
+
+    {% for chai in chais %}
+    
+    <div class="chai-item">
+        <img src="{{chai.image.url}}" alt="img">
+        <h3>{{ chai.name }}</h3>
+        <p>{{ chai.description }}</p>
+        <a href={% url 'chai_detail' chai.id %}>
+            <button>
+                {{chai.type}} - {{chai.id}}
+            </button>
+        </a>
+    </div>
+
+    {% endfor %}
+
+    </div>
+{% endblock %}
+
