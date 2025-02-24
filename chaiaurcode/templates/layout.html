@@ -11,7 +11,7 @@
     <link rel="stylesheet" href={% static "style.css" %}>
 </head>
 <body>
-    <nav>This is the Navigation bar</nav>
+    {% comment %} <nav>This is the Navigation bar</nav> {% endcomment %}
     {% block content %}
     in other files use the content keyword to address this block and fill in the content.
     {% endblock %}
